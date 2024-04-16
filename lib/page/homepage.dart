@@ -1,6 +1,8 @@
 
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flirtguru/controller/home_controller.dart';
+import 'package:flirtguru/page/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -9,7 +11,9 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final homeController controller=Get.put(homeController());
-  String date =DateFormat.Hm().format(DateTime.now());
+
+  // String date =DateFormat.Hm().format(DateTime.now());
+  String date= DateFormat.Hm().format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +74,14 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(color: Colors.white),),
                         trailing: Text(date,
                           style: TextStyle(color: Colors.white,fontSize: 16),),
+                        onTap: (){
+                          String roomId=controller.chatRoomId(
+                            FirebaseAuth.instance.currentUser!.displayName.toString(),
+                            controller.userMap.value['name']
+                          );
+                          Get.toNamed('/chat', arguments: {'chatRoomId': roomId, 'userMap': controller.userMap.value});
+                          // Get.toNamed("/chat");
+                        },
                       )
                       : Container();
             }),

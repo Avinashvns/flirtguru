@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flirtguru/page/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -15,6 +17,14 @@ class _ExampleState extends State<Example> {
 
   bool isLoading = false;
   final TextEditingController _search = TextEditingController();
+
+  String chatRoomId(String user1, String user2){
+    if(user1[0].toLowerCase().codeUnits[0] > user2.toLowerCase().codeUnits[0]){
+      return "$user1$user2";
+    }else{
+      return "$user2$user1";
+    }
+  }
 
   // @override
   // void initState() {
@@ -100,7 +110,14 @@ class _ExampleState extends State<Example> {
             ),
             isLoading ? CircularProgressIndicator()
                 : userMap !=null && userMap.isNotEmpty ?
-                ListTile(title: Text(userMap['name'],style: TextStyle(color: Colors.white),),)
+                ListTile(title: Text(userMap['name'],style: TextStyle(color: Colors.white),),
+                onTap: (){
+                  String roomId=chatRoomId(
+                    FirebaseAuth.instance.currentUser!.displayName.toString(),
+                    userMap['name']
+                  );
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ChatPage(chatRoomId: roomId, userMap: userMap)));
+                },)
                 : Container(),
 
           ],

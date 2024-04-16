@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flirtguru/page/chat_page.dart';
 import 'package:flirtguru/page/example.dart';
 import 'package:flirtguru/page/homepage.dart';
 import 'package:flirtguru/page/sign_up_page.dart';
@@ -20,13 +21,24 @@ void main()async{
   runApp(
       GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          // Set the default text color here
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Colors.white), // for bodyText1
+            bodyText2: TextStyle(color: Colors.white), // for bodyText2
+            // Add more styles as needed
+          ),
+        ),
         initialRoute: "first",
         getPages: [
           GetPage(
               name: "/first",
               page: ()=> MyApp()
           ),
-
+          GetPage(
+              name: "/chat",
+              page: ()=> ChatPage()
+          ),
         ],
       )
   );
