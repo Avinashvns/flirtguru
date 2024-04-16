@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "970023506628",
+    "project_id": "flirtguru-f339d",
+    "storage_bucket": "flirtguru-f339d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970023506628:android:ff9858864c2161654b2f91",
+        "android_client_info": {
+          "package_name": "com.avinashvns.flirtguru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970023506628-o2k3i2s5as6uk0q6rb0cld46nplbagku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.avinashvns.flirtguru",
+            "certificate_hash": "90738eeaab58b112f8da828e19ee945f41f11658"
+          }
+        },
+        {
+          "client_id": "970023506628-ff76v8f7ma99rt750a96r50t4v2njsjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYgiHhUZf1HTquHo1F8_zCmRgY9GVkV_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970023506628-ff76v8f7ma99rt750a96r50t4v2njsjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
