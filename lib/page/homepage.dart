@@ -3,11 +3,14 @@
 import 'package:flirtguru/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final homeController controller=Get.put(homeController());
+  String date =DateFormat.Hm().format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
     final size= MediaQuery.of(context).size;
@@ -63,6 +66,10 @@ class HomePage extends StatelessWidget {
                       ListTile(
                         title: Text(controller.userMap.value['name'],
                         style: TextStyle(color: Colors.white),),
+                        subtitle: Text(controller.userMap.value['email'],
+                          style: TextStyle(color: Colors.white),),
+                        trailing: Text(date,
+                          style: TextStyle(color: Colors.white,fontSize: 16),),
                       )
                       : Container();
             }),
